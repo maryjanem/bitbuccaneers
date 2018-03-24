@@ -1,0 +1,25 @@
+{
+  "Attractions":[
+    {
+      "Name": "titanic belfast",
+      "Adult": 18.00,
+      "Child": 8.00,
+      "Concession": 14.50,
+      "Location": "Belfast"
+    },
+    {
+      "Name": "Giants causeway",
+      "Adult": 0.00,
+      "Child": 0.00,
+      "Concession": 0.00,
+      "Location": "Bushmills"
+    },
+    {
+      "Name": "Belfast citysightseeing",
+      "Adult": 12.50,
+      "Child": 6.00,
+      "Concession": 10.50,
+      "Location": "Belfast"
+    }
+  ]
+}
