@@ -54,33 +54,17 @@ bot.dialog('Price',
         
 bot.dialog('findTicketPrice', [
     function(session, args){
-    var att = builder.EntityRecognizer.findEntity(args.intent.entities, 'TourismAttractions').entity;
-        //if(builder.EntityRecognizer.findEntity(args.intent.entities, 'Tickets').entity !== null)
-            //var ticket = builder.EntityRecognizer.findEntity(args.intent.entities, 'Tickets').entity;
-
+        var att = builder.EntityRecognizer.findEntity(args.intent.entities, 'TourismAttractions').entity;
         var found = false;
         if(att){
-            //session.send(att)
             for (var i = 0; i < attractions.Attractions.length; i++){
                 if(att === attractions.Attractions[i].Name){
                     found = true;
-                    session.send("Found");
-                    //if(ticket){
-                      //  if(ticket === 'Concession')
-                        //    session.endDialogWithResult("Ticket price is " + attractions.Attractions[i].Concession)
-                        //if(ticket === 'Adult')
-                        //    session.endDialogWithResult("Ticket price is " + attractions.Attractions[i].Adult)
-                        //if(ticket === 'Child')
-                        //    session.endDialogWithResult("Ticket price is " + attractions.Attractions[i].Child)
-                    //}
-                    //else{
-                        session.conversationData.att = attractions.Attractions[i];
-                        builder.Prompts.text(session, "What ticket type are you interested in? (Adult/Child/Concession)")
-                        //}
+                    session.conversationData.att = attractions.Attractions[i];
+                    builder.Prompts.text(session, "What ticket type are you interested in? (Adult/Child/Concession)")
                     }
                 }
                 if(found === false){
-                    //session.send(att.getText());
                     session.send("We could not find that attraction in our list.");
                 }
             }
