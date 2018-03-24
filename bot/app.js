@@ -40,7 +40,7 @@ var bot = new builder.UniversalBot(connector).set('storage', inMemoryStorage);
 var recognizer = new builder.LuisRecognizer("https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/f7c8e57c-b65e-4df4-b99f-8ca353ccc152?subscription-key=c42114c8555e4734b647600c989e3d58&verbose=true&timezoneOffset=0&q=");
 bot.recognizer(recognizer);
 
-bot.dialog('/', function(session){
+bot.dialog('/', function (session) {
     session.send('Could you try saying that in Pirate? My English is a bit rusty.');
 });
 
@@ -109,15 +109,12 @@ bot.on('conversationUpdate', function (message) {
     if (message.membersAdded) {
         message.membersAdded.forEach(function (identity) {
             if (identity.id === message.address.bot.id) {
-                bot.send(new builder.Message()
-                    .text("Hello Human")
-                    .suggestedActions(
-                    builder.SuggestedActions.create(
-                        null, [
-                            builder.CardAction.imBack(null, "get started", "Get Started")
-                        ]
-                    ))
-                    .address(message.address));
+                var card = new builder.HeroCard(null)
+                    .text("Ahoy! I'm Sparrow, your chatbot guide to Northern Ireland! What can I help you with today?")
+                    .images([
+                        builder.CardImage.create(null, 'https://i.imgur.com/rFiOPeS.png')
+                    ]);
+                bot.send(new builder.Message().addAttachment(card).address(message.address));
             }
         });
     }
@@ -129,3 +126,48 @@ bot.use({
         next();
     }
 });
+
+bot.dialog('Recommendations', function (session, args) {
+    var city = builder.EntityRecognizer.findEntity(args.intent.entities, 'City').entity;
+    if (city) {
+        if (city === 'belfast') {
+            session.send('I love a wee trip to Titanic Museum 🚢 to hear a story about the greatest ship of all time! But here are some other recommendations too 😁');
+            var reply = new builder.Message(session)
+                .attachmentLayout(builder.AttachmentLayout.carousel)
+                .attachments(getBelfastRecs());
+
+            session.send(reply);
+
+        }
+    } else {
+        session.send('The locals are quite fond of The Dirty Onion. Personally, I love a wee pint at Katy\'s Cellars.')
+    }
+}).triggerAction({
+    matches: 'Recommendation'
+});
+
+
+
+function getBelfastRecs(session) {
+    return [
+        new builder.HeroCard(session)
+            .title('Titanic Museum')
+            .text('Titanic Belfast is the World\'s largest Titanic visitor experience and must-see attraction in Northern Ireland!')
+            .images([
+                builder.CardImage.create(session, 'https://media-cdn.tripadvisor.com/media/photo-s/03/bc/05/ac/titanic-belfast.jpg')
+            ])
+            .buttons([
+                builder.CardAction.openUrl(session, "https://titanicbelfast.admit-one.eu/", 'Buy Tickets'),
+                builder.CardAction.imBack(session, "prices", 'Prices'),
+            ]),
+            new builder.HeroCard(session)
+            .title('Belfast Pub Crawl')
+            .text('Belfast Pub Crawl will take you out for an evening full of great bars, drinks, traditional Irish music and of course, plenty of craic! 🍺  It runs on Fridays and Saturdays from 8pm.')
+            .images([
+                builder.CardImage.create(session, 'https://d5qsyj6vaeh11.cloudfront.net/images/destinations/important%20places/irish%20pubs/article%20images/c112_f_main.jpg')
+            ])
+            .buttons([
+                builder.CardAction.openUrl(session, "https://titanicbelfast.admit-one.eu/", 'Find Out More')
+            ])
+    ];
+}
