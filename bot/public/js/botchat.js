@@ -18124,7 +18124,7 @@ var localizedStrings = {
         messageFailed: "couldn't send",
         messageSending: "sending",
         timeSent: " at %1",
-        consolePlaceholder: "Ask a question",
+        consolePlaceholder: "Got something to say?",
         listeningIndicator: "Listening..."
     },
     'nb-no': {

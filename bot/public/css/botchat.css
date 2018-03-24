@@ -14,7 +14,8 @@ body .wc-app, .wc-app button, .wc-app input, .wc-app textarea {
   
   .wc-app h1, .wc-app h2, .wc-app h3, .wc-app h4, .wc-app p, .wc-app ul, .wc-app ol {
     margin: 0;
-    padding: 0; }
+    padding: 0; 
+    font-size: 25px;}
   
   .wc-app audio, .wc-app video {
     display: block; }
@@ -77,7 +78,7 @@ body .wc-app, .wc-app button, .wc-app input, .wc-app textarea {
         max-width: 40%; }
         .wc-suggested-actions .wc-hscroll > ul > li button {
           background-color: #fff;
-          color: #006857;
+          color: #00a3c1;
           min-height: 32px;
           overflow: hidden;
           padding: 0 16px;
@@ -86,11 +87,11 @@ body .wc-app, .wc-app button, .wc-app input, .wc-app textarea {
           width: 100%; }
         .wc-suggested-actions .wc-hscroll > ul > li button:hover {
           background-color: #fff;
-          border-color: #006857;
-          color: #006857; }
+          border-color: #00a3c1;
+          color: #00a3c1; }
         .wc-suggested-actions .wc-hscroll > ul > li button:active {
-          background-color: #006857;
-          border-color: #006857;
+          background-color: #00a3c1;
+          border-color: #00a3c1;
           color: #ffffff; }
     .wc-suggested-actions button.scroll {
       background-color: #92062f;
@@ -202,9 +203,8 @@ body .wc-app, .wc-app button, .wc-app input, .wc-app textarea {
   
   .wc-message-from {
     clear: both;
-    color: #999999;
-    font-size: 15px;
-    margin-top: 5px; }
+    color: transparent;
+    font-size: 0px; }
   
   /* cards */
   .wc-card {
@@ -213,17 +213,17 @@ body .wc-app, .wc-app button, .wc-app input, .wc-app textarea {
       margin: 8px 8px 0 8px; }
     .wc-card button {
       background-color: transparent;
-      color: #006857;
+      color: #00a3c1;
       min-height: 32px;
       width: 100%;
       padding: 0 16px; }
     .wc-card button:hover {
       background-color: transparent;
-      border-color: #006857;
-      color: #006857; }
+      border-color: #00a3c1;
+      color: #00a3c1; }
     .wc-card button:active {
-      background-color: #006857;
-      border-color: #006857;
+      background-color: #00a3c1;
+      border-color: #00a3c1;
       color: #ffffff; }
     .wc-card.receipt table {
       border-collapse: collapse;
@@ -235,14 +235,14 @@ body .wc-app, .wc-app button, .wc-app input, .wc-app textarea {
       text-align: left; }
     .wc-card.receipt th {
       color: #808c95;
-      font-size: inherit;
+      font-size: 25px;
       font-weight: normal;
       line-height: 1.75; }
     .wc-card.receipt thead tr:last-child th {
       padding-bottom: 16px; }
     .wc-card.receipt th[colspan="2"] {
       color: inherit;
-      font-size: 15px;
+      font-size: 25px;
       font-weight: 700; }
     .wc-card.receipt td {
       padding: 4px 8px 0 8px; }
@@ -287,7 +287,7 @@ body .wc-app, .wc-app button, .wc-app input, .wc-app textarea {
   
   /* alternate chat sizes */
   .wc-message {
-    max-width: 91%; }
+    max-width: 100%; }
   
   .wc-card {
     border: 1px solid #d2dde5;
@@ -382,11 +382,11 @@ body .wc-app, .wc-app button, .wc-app input, .wc-app textarea {
     text-align: right; }
   
   .wc-message-from-me .wc-message-content {
-    background-color: #006857;
+    background-color: #00a3c1;
     color: #ffffff; }
   
   .wc-message-from-me svg.wc-message-callout path {
-    fill: #006857; }
+    fill: #00a3c1; }
   
   .wc-message-from-me svg.wc-message-callout path.point-left {
     display: none; }
@@ -470,7 +470,7 @@ body .wc-app, .wc-app button, .wc-app input, .wc-app textarea {
     visibility: hidden; }
   
   .wc-console.has-text .wc-send svg {
-    fill: #006857; }
+    fill: #00a3c1; }
   
   /* animation */
   .wc-typing {
