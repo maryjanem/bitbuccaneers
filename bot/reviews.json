@@ -1,0 +1,20 @@
+{
+"Titanic": [{
+            "Rating": "4",
+            "Review": "Interesting place to go",
+            "Author": "James Smith"
+        },
+        {
+            "Rating": "3",
+            "Review": "Could be better",
+            "Author": "Joe"
+        }],
+"Giant Causeway": {
+           "Rating": "3",
+           "Review":  "Can't wait to go again"
+        },
+"Belfast City sight": {
+            "Rating" : "2",
+            "Review": "Number one City"
+        }
+}
