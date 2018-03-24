@@ -211,8 +211,11 @@ bot.dialog('seeReview', [
     function(session,results){
         //session.send(reviews["Titanic"].Review);
         console.log(reviews);
+        console.log(reviews["Titanic"][0].Author)
+        for(var i = 0; i < reviews["Titanic"].length; i++){
+            session.send(reviews["Titanic"][i].Author + " said this about Titanic Museum \"" + reviews["Titanic"][i].Review + "\" and gave it " + reviews["Titanic"][i].Rating + "/5");
+        }
         
-        session.send(reviews["Titanic"].Author + " said this about Titanic Museum \"" + reviews["Titanic"].Review + "\" and gave it " + reviews["Titanic"].Rating + "/5");
     },
 
 ]);
