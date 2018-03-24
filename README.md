@@ -13,6 +13,14 @@ pip install Flask-WTF
 pip install tensorflow
 ```
 
+Then
+
+```
+cd flask/
+export FLASK_APP=machine_learning.py
+flask run
+```
+
 * Run the following commands:
 ```
 npm install
